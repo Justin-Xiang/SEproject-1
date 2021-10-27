@@ -1,0 +1,21 @@
+.menuContainer {
+	width: 200px;
+	height: auto;
+	margin: {
+		top: 9rem;
+		left: 4rem;
+	}
+}
+.avatarContainer {
+	height: 20%;
+	display: flex;
+	margin-bottom: 30px;
+	align-items: center;
+	background-color: transparent;
+	:global{
+		.avatar{
+			position: relative;
+    		left: 1.1rem;
+		}
+	}
+}

@@ -1,0 +1,42 @@
+$arrow-width: 20px;
+$border-dist: 6px;
+.wrapper{
+	width: 60%;
+	position: absolute;
+	top: 0;
+	height: 200px;
+	.ant-carousel{
+		width: 100%;
+		height: 100%;
+	}
+	div{
+		height: 100%;
+	}
+	.slick{
+		&-arrow{
+			position: absolute;
+			z-index:3;
+			background-color: rgba(165, 163, 163, 0.219);
+			margin: 0;
+			top: 75px;
+			height: $arrow-width;
+			width: $arrow-width;
+			border-radius: $arrow-width/2;
+			border: 2px white dotted;
+		}
+		&-next, &-prev{
+			&:hover{background-color: rgba(104, 104, 104, 0.465)!important;}
+		}
+
+		&-next{
+			right: $border-dist;
+		}
+		&-prev{
+			left: $border-dist;
+		}
+	}
+	.ant-carousel .slick-dots-bottom{
+		position: relative;
+		bottom: 20px;
+	}
+}
