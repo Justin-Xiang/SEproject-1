@@ -1,62 +1,78 @@
-import {
-	AntDesignOutlined,
-	FunctionOutlined,
-	HomeOutlined,
-	ReadOutlined,
-	SecurityScanOutlined
-} from '@ant-design/icons';
-import { Avatar, Menu } from 'antd';
-import styles from '../css/SideMenu.module.scss';
-export const Menus = () => {
+/* eslint-disable no-undef */
+import React, { useContext, useRef, useState } from 'react';
+import '../css/Menu.scss';
+const SelectedContext = React.createContext({} as any);
+type Child = JSX.Element | string;
+type MenuChild = JSX.Element;
+export const MyMenu = (props: { children: Child[] }) => {
+	const [selected, setSelected] = useState(-1);
 	return (
-		<Menu
-			selectable={true}
-			style={{
-				width: '100%',
-				height: '80%',
-				bottom: '0px',
-				display: 'flex',
-				flexDirection: 'column',
-				flex: 1
-			}}
-			mode="inline"
-			theme="light"
-			defaultSelectedKeys={['default']}
-		>
-			<Menu.Item icon={<HomeOutlined />} key={'default'}>
-				<a href="#/">首页</a>
-			</Menu.Item>
-			<Menu.SubMenu key={10} title="题库" icon={<FunctionOutlined />}>
-				<Menu.Item key={1}>
-					<a href="#/gradeOne">一年级</a>
-				</Menu.Item>
-				<Menu.Item key={2}>二年级</Menu.Item>
-				<Menu.Item key={3}>三年级</Menu.Item>
-				<Menu.Item key={4}>四年级</Menu.Item>
-				<Menu.Item key={5}>五年级</Menu.Item>
-				<Menu.Item key={6}>六年级</Menu.Item>
-			</Menu.SubMenu>
-			<Menu.Item key={20} icon={<SecurityScanOutlined />}>
-				错题集
-			</Menu.Item>
-			<Menu.Item key={30} icon={<ReadOutlined />}>
-				生涯记录
-			</Menu.Item>
-		</Menu>
+		<SelectedContext.Provider value={[selected, setSelected]}>
+			<div>
+				<ul className="menu">{props.children}</ul>
+			</div>
+		</SelectedContext.Provider>
 	);
 };
-
-export const SideMenu = () => {
+export const MenuItem = (props: {
+	children: Child;
+	key: number;
+	icon?: JSX.Element;
+	href?: string;
+	isChild?: boolean;
+}) => {
+	const [selected, setSelected] = useContext(SelectedContext);
+	const id = useRef(Math.random());
 	return (
-		<div>
-			<div className={styles.menuContainer}>
-				<div className={styles.avatarContainer}>
-					<div className={'avatar'}>
-						<Avatar size={50} icon={<AntDesignOutlined />} />
-					</div>
-				</div>
-				<Menus />
+		<li
+			className={
+				'menu-item' +
+				(id === selected ? ' menu-item-selected' : '') +
+				(props.isChild ? ' menu-item-child' : '')
+			}
+			onClick={() => {
+				setSelected(id);
+				console.log(props.isChild);
+			}}
+		>
+			{props.icon ? (
+				<span className="menu-item-icon">{props.icon}</span>
+			) : null}
+			<a href={props.href}>
+				<span className="menu-item-title">{props.children}</span>
+			</a>
+		</li>
+	);
+};
+export const SubMenu = (props: {
+	children: MenuChild[] | MenuChild;
+	key: number;
+	title: string;
+	icon?: JSX.Element;
+}) => {
+	const [isOpen, setIsOpen] = useState(false);
+	return (
+		<li className="menu-submenu-item">
+			<div
+				className="menu-submenu-item-title"
+				onClick={() => {
+					setIsOpen((v) => !v);
+				}}
+			>
+				{props.icon ? <span>{props.icon}</span> : null}
+				<span className="menu-item-title">{props.title}</span>
+				<i className="menu-submenu-item-arrow"></i>
 			</div>
-		</div>
+			<ul
+				className="menu-submenu"
+				style={{ display: isOpen ? 'block' : 'none' }}
+			>
+				{Array.isArray(props.children)
+					? props.children.map((v) =>
+							React.cloneElement(v, { isChild: true })
+					  )
+					: React.cloneElement(props.children, { isChild: true })}
+			</ul>
+		</li>
 	);
 };

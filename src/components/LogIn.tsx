@@ -1,5 +1,6 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
+import React from 'react';
 import styles from '../css/Login.module.css';
 import { User } from '../utils/user';
 export const LogIn = (props: { user: User }) => {
@@ -25,10 +26,10 @@ export const LogIn = (props: { user: User }) => {
 						]}
 					>
 						<Input
-							size="large"
+							maxLength={100}
 							placeholder="用户名"
 							prefix={<UserOutlined />}
-							maxLength={100}
+							size="large"
 						/>
 					</Form.Item>
 					<p style={{ margin: '6px 0', display: 'block' }}>&nbsp;</p>
@@ -42,10 +43,10 @@ export const LogIn = (props: { user: User }) => {
 						]}
 					>
 						<Input.Password
-							size="large"
+							maxLength={100}
 							placeholder="密码"
 							prefix={<LockOutlined />}
-							maxLength={100}
+							size="large"
 						/>
 					</Form.Item>
 				</div>
@@ -54,8 +55,8 @@ export const LogIn = (props: { user: User }) => {
 						<Checkbox>Remember me</Checkbox>
 					</Form.Item>
 					<Form.Item
-						wrapperCol={{ span: 16 }}
 						style={{ justifyContent: 'center' }}
+						wrapperCol={{ span: 16 }}
 					>
 						<div
 							style={{
@@ -64,9 +65,9 @@ export const LogIn = (props: { user: User }) => {
 							}}
 						>
 							<Button
-								type="primary"
 								htmlType="submit"
 								style={{ width: '80px', height: '40px' }}
+								type="primary"
 							>
 								登录
 							</Button>

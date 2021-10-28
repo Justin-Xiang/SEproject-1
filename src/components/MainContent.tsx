@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react';
+import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import styles from '../css/MainContent.module.css';
 import { User } from '../utils/user';

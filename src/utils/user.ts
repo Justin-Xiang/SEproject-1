@@ -12,9 +12,9 @@ interface PersonalInformation {
  */
 export class User {
 	isLogIn = false;
-	id: String = '';
-	name: String = '';
-	age: number = 0;
+	id = '';
+	name = '';
+	age = 0;
 	personalIntroduction: Object | null = null;
 	avatar: Blob | null = null;
 	/**

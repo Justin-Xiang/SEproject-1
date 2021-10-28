@@ -1,0 +1,81 @@
+$hover-color: rgba(36, 223, 230, 0.767);
+.menu {
+	font-family: STHeiti, 'Microsoft YaHei', SimSun;
+	user-select: none;
+	::marker {
+		display: none;
+	}
+	padding: 0;
+	width: 200px;
+	&-submenu {
+		padding: 0;
+	}
+	&-item {
+		&-selected {
+			text-shadow: 2px 0px 0px rgba(29, 160, 236, 0.726);
+		}
+		&-child {
+			padding-left: 32px;
+		}
+		& > a {
+			transition: none;
+			color: inherit;
+			&:link,
+			&:visited,
+			&:hover,
+			&:active {
+				color: inherit;
+			}
+		}
+		cursor: pointer;
+		padding: 0 20px;
+		margin: 6px 0;
+		height: auto;
+		line-height: 40px;
+		display: flex;
+		&-title {
+			margin-left: 11px;
+			flex: auto;
+		}
+		&:hover {
+			color: $hover-color;
+		}
+	}
+	&-submenu {
+		&-item {
+			@extend .menu-item;
+			padding: 0;
+			&-title {
+				padding: 0 20px;
+				display: flex;
+				width: 100%;
+				&:hover {
+					color: $hover-color;
+				}
+			}
+			&:hover {
+				color: initial;
+			}
+			&:hover > &-title > &-arrow::after {
+				background-color: $hover-color;
+			}
+			&-arrow {
+				color: black;
+				//position: relative;
+				display: flex;
+				flex: none;
+				top: 50%;
+				height: 0;
+				&::after {
+					content: '';
+					width: 10px;
+					height: 2px;
+					background: black;
+					position: absolute;
+					transform: translateY(19px);
+				}
+			}
+			display: list-item;
+		}
+	}
+}

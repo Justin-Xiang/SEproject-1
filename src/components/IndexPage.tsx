@@ -1,6 +1,6 @@
 import { Carousel } from 'antd';
-import { useRef } from 'react';
-import '../css/slick-custom.scss';
+import React from 'react';
+import '../css/custom-custom.scss';
 const contentStyle: React.CSSProperties = {
 	color: '#fff',
 	lineHeight: '160px',
@@ -16,11 +16,11 @@ const CustomCarousel = () => {
 	return (
 		<div className="wrapper">
 			<Carousel
-				autoplay={true}
+				arrows
+				autoplay
 				autoplaySpeed={2000}
-				dots={true}
 				dotPosition={'bottom'}
-				arrows={true}
+				dots
 			>
 				<div>
 					<h3 style={contentStyle}>1</h3>
@@ -39,6 +39,5 @@ const CustomCarousel = () => {
 	);
 };
 export const IndexPage = () => {
-	const node = useRef(null);
 	return <CustomCarousel />;
 };
