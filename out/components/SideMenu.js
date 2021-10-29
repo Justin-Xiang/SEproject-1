@@ -10,19 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { AntDesignOutlined, FunctionOutlined, HomeOutlined, ReadOutlined, SecurityScanOutlined } from '@ant-design/icons';
-import { Avatar, Menu } from 'antd';
-import styles from '../css/SideMenu.module.css';
+import { Menu, MenuItem, SubMenu } from './Menu';
 export var Menus = function () {
-    return (_jsxs(Menu, __assign({ selectable: false, style: {
-            width: '100%',
-            height: '80%',
-            bottom: '0px',
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 1
-        }, mode: "inline", theme: "dark" }, { children: [_jsx(Menu.Item, __assign({ icon: _jsx(HomeOutlined, {}, void 0) }, { children: "\u4E2A\u4EBA\u4FE1\u606F" }), 0), _jsxs(Menu.SubMenu, __assign({ title: "\u9898\u5E93", icon: _jsx(FunctionOutlined, {}, void 0) }, { children: [_jsx(Menu.Item, { children: "\u4E00\u5E74\u7EA7" }, 1), _jsx(Menu.Item, { children: "\u4E8C\u5E74\u7EA7" }, 2), _jsx(Menu.Item, { children: "\u4E09\u5E74\u7EA7" }, 3), _jsx(Menu.Item, { children: "\u56DB\u5E74\u7EA7" }, 4), _jsx(Menu.Item, { children: "\u4E94\u5E74\u7EA7" }, 5), _jsx(Menu.Item, { children: "\u516D\u5E74\u7EA7" }, 6)] }), 10), _jsx(Menu.Item, __assign({ icon: _jsx(SecurityScanOutlined, {}, void 0) }, { children: "\u9519\u9898\u96C6" }), 20), _jsx(Menu.Item, __assign({ icon: _jsx(ReadOutlined, {}, void 0) }, { children: "\u751F\u6DAF\u8BB0\u5F55" }), 30)] }), void 0));
-};
-export var SideMenu = function () {
-    return (_jsxs("div", __assign({ className: styles.menuContainer }, { children: [_jsx("div", __assign({ className: styles.avatarContainer }, { children: _jsx(Avatar, { size: { xs: 24, sm: 32, md: 40, lg: 64, xl: 100, xxl: 120 }, icon: _jsx(AntDesignOutlined, {}, void 0) }, void 0) }), void 0), _jsx(Menus, {}, void 0)] }), void 0));
+    return (_jsxs(Menu, { children: [_jsx(MenuItem, __assign({ default: true, href: "#/" }, { children: "\u9996\u9875" }), 0), _jsxs(SubMenu, __assign({ title: "\u9898\u5E93" }, { children: [_jsx(MenuItem, __assign({ href: "#/question", level: 1 }, { children: "\u4E00\u5E74\u7EA7" }), 1), _jsx(MenuItem, __assign({ href: "#/question", level: 2 }, { children: "\u4E8C\u5E74\u7EA7" }), 2), _jsx(MenuItem, __assign({ href: "#/question", level: 3 }, { children: "\u4E09\u5E74\u7EA7" }), 3), _jsx(MenuItem, __assign({ href: "#/question", level: 4 }, { children: "\u56DB\u5E74\u7EA7" }), 4), _jsx(MenuItem, __assign({ href: "#/question", level: 5 }, { children: "\u4E94\u5E74\u7EA7" }), 5), _jsx(MenuItem, __assign({ href: "#/question", level: 6 }, { children: "\u516D\u5E74\u7EA7" }), 6)] }), 10), _jsx(MenuItem, __assign({ href: "#/wrongSet" }, { children: "\u9519\u9898\u96C6" }), 20), _jsx(MenuItem, __assign({ href: "#/history" }, { children: "\u5386\u53F2\u8BB0\u5F55" }), 30)] }, void 0));
 };

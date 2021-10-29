@@ -82,7 +82,12 @@ $hover-color: rgba(36, 223, 230, 0.767);
 			&:hover > &-title > &-arrow::after {
 				background-color: gray;
 			}
+			& > &-title > &-arrow-open::after {
+				transform: rotate(90deg) translateX(19px);
+			}
 			&-arrow {
+				&::after {
+				}
 				color: black;
 				//position: relative;
 				display: flex;
@@ -90,6 +95,7 @@ $hover-color: rgba(36, 223, 230, 0.767);
 				top: 50%;
 				height: 0;
 				&::after {
+					transition: all 0.3s;
 					content: '';
 					width: 10px;
 					height: 2px;

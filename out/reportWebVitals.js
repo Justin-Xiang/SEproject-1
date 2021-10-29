@@ -1,4 +1,3 @@
-// @ts-nocheck
 var reportWebVitals = function (onPerfEntry) {
     if (onPerfEntry && onPerfEntry instanceof Function) {
         import('web-vitals').then(function (_a) {

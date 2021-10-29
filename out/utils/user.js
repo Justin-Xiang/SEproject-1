@@ -4,7 +4,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { observable } from 'mobx';
+import { action } from 'mobx';
 /**
  * User类，表示当前登录的用户，若未登录，则isLogIn为false，其余属性为undefined
  */
@@ -20,6 +20,9 @@ var User = /** @class */ (function () {
     /**
      * @function 用户登录
      */
+    User.prototype.init = function () {
+        this.isLogIn = true;
+    };
     User.prototype.logIn = function (info) {
         this.isLogIn = true;
         this.id = info.id;
@@ -28,14 +31,13 @@ var User = /** @class */ (function () {
         this.personalIntroduction = info.personalIntroduction;
     };
     __decorate([
-        observable
-    ], User.prototype, "isLogIn", void 0);
+        action
+    ], User.prototype, "init", null);
     return User;
 }());
-export default User;
+export { User };
 /**
  * @function 用户登出
- * @returns {User} 一个全新的未登录的User对象
  */
 export function logOut() {
     return new User();

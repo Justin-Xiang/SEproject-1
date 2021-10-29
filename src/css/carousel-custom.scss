@@ -1,6 +1,7 @@
 $arrow-width: 20px;
 $border-dist: 6px;
 $active-color: white !important;
+@import './cyberpunk.scss';
 @mixin item-hover {
 	color: orange !important;
 }
@@ -15,10 +16,11 @@ $active-color: white !important;
 	color: white !important;
 }
 .wrapper {
+	font-family: Neon;
 	width: 60%;
-	position: absolute;
-	top: 0;
-	height: 200px;
+	position: relative;
+	left: 50px;
+	height: auto;
 	.ant-carousel {
 		width: 100%;
 		height: 100%;
@@ -27,6 +29,9 @@ $active-color: white !important;
 		height: 100%;
 	}
 	.slick {
+		&-list {
+			height: 600px;
+		}
 		&-arrow {
 			position: absolute;
 			z-index: 3;

@@ -9,11 +9,12 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx } from "react/jsx-runtime";
-import { useState } from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { observer } from 'mobx-react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import styles from '../css/MainContent.module.css';
+import { IndexPage } from './IndexPage';
 import { LogIn } from './LogIn';
-export var MainContent = function () {
-    var _a = useState(false), isLogIn = _a[0], setIsLogIn = _a[1];
-    return (_jsx("div", __assign({ className: styles.mainContent }, { children: isLogIn ? 'nothing' : _jsx(LogIn, {}, void 0) }), void 0));
-};
+export var MainContent = observer(function (props) {
+    return (_jsx(Router, { children: _jsx("div", __assign({ className: styles.mainContent }, { children: _jsxs(Switch, { children: [_jsx(Route, __assign({ path: "/question" }, { children: _jsx("div", { children: "nothing" }, void 0) }), void 0), _jsx(Route, __assign({ path: "/" }, { children: props.user.isLogIn ? (_jsx(IndexPage, {}, void 0)) : (_jsx(LogIn, { user: props.user }, void 0)) }), void 0)] }, void 0) }), void 0) }, void 0));
+});

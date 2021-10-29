@@ -72,7 +72,12 @@ export const SubMenu = (props: {
 			>
 				{props.icon ? <span>{props.icon}</span> : null}
 				<span className="menu-item-title">{props.title}</span>
-				<i className="menu-submenu-item-arrow"></i>
+				<i
+					className={
+						'menu-submenu-item-arrow' +
+						(isOpen ? ' menu-submenu-item-arrow-open' : '')
+					}
+				></i>
 			</div>
 			<ul
 				className="menu-submenu"

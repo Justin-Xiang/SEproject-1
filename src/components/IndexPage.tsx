@@ -1,6 +1,6 @@
 import { Carousel } from 'antd';
 import React from 'react';
-import '../css/custom-custom.scss';
+import '../css/carousel-custom.scss';
 const contentStyle: React.CSSProperties = {
 	color: '#fff',
 	lineHeight: '160px',
@@ -23,7 +23,7 @@ const CustomCarousel = () => {
 				dots
 			>
 				<div>
-					<h3 style={contentStyle}>1</h3>
+					<h3 style={contentStyle}>Math</h3>
 				</div>
 				<div>
 					<h3 style={contentStyle}>2</h3>
