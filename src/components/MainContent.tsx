@@ -10,7 +10,7 @@ export const MainContent = observer((props: { user: User }) => {
 		<Router>
 			<div className={styles.mainContent}>
 				<Switch>
-					<Route path="/gradeOne">
+					<Route path="/question">
 						<div>nothing</div>
 					</Route>
 					<Route path="/">
