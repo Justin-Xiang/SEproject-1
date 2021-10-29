@@ -10,7 +10,7 @@ export const Menu = (props: { children: Child[] }) => {
 	const [selected, setSelected] = useState(-1);
 	return (
 		<SelectedContext.Provider value={[selected, setSelected]}>
-			<div>
+			<div className="contain-menu">
 				<ul className="menu">{props.children}</ul>
 			</div>
 		</SelectedContext.Provider>

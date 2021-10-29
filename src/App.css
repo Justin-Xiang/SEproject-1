@@ -1,4 +1,7 @@
 @import '~antd/dist/antd.css';
+body {
+	background-color: rgb(255, 255, 255);
+}
 #root {
 	display: flex;
 }

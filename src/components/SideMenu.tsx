@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
+import '../css/Menu.scss';
 import { Menu, MenuItem, SubMenu } from './Menu';
-
 export const Menus = () => {
 	return (
 		<Menu>
