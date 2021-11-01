@@ -1,23 +1,22 @@
 import { Operator } from './types';
 
-export interface IQuestion {
-	op: Operator;
+export interface ISingleOpQuestion {
 	num1: number;
 	num2: number;
-	id: string;
-}
-
-class Question implements IQuestion {
 	op: Operator;
+}
+export interface IMulOpQuestion {
+	op1: Operator;
+	op2: Operator; // in bracket
 	num1: number;
-	num2: number;
-	id: string;
-	constructor(ques: IQuestion) {
-		this.op = ques.op;
-		this.num1 = ques.num1;
-		this.num2 = ques.num2;
-		this.id = ques.id;
-	}
+	num1InBracket: number;
+	num2InBracket: number;
+}
+function isSingleOp(q: any): q is ISingleOpQuestion {
+	return q.op1 !== 'undefined';
+}
+class QuestionConstructor {
+	static createQuestion(q: ISingleOpQuestion): void {}
 }
 
-export default Question;
+export default QuestionConstructor;

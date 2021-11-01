@@ -3,12 +3,13 @@ $hover-color: rgba(36, 223, 230, 0.767);
 @mixin item-hover {
 	//color: $hover-color;
 	//background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
-	color: white;
 	font-weight: bold;
 	font-size: 17px;
 }
 .contain-menu {
-	background-color: rgba(63, 63, 63, 0.506);
+	//background-color: rgb(40, 49, 69);
+	background-color: #ceddff;
+	box-shadow: 1px 0 35px 0px #4e4e4ee6;
 	position: fixed;
 	height: 100%;
 	width: 230px;
@@ -16,50 +17,26 @@ $hover-color: rgba(36, 223, 230, 0.767);
 .menu {
 	max-height: 600px;
 	transition: max-height 0.3s;
-	color: rgb(255, 255, 255);
+	color: #8e8e8e;
 	font-weight: bold;
-	top: 20%;
+	top: 15%;
 	-webkit-user-select: none;
 	user-select: none;
 	padding: 0;
 	width: 200px;
 	position: relative;
 	user-select: none;
-	// &::after {
-	// 	$color: rgba(215, 57, 255, 0.671);
-	// 	content: '';
-	// 	position: absolute;
-	// 	height: 100%;
-	// 	width: 4px;
-	// 	background-color: $color;
-	// 	left: 185px;
-	// 	top: 14px;
-	// 	box-shadow: 1px 1px 8px 2px $color;
-	// 	border-radius: 2px;
-	// }
-	// &::before {
-	// 	$color: rgba(29, 153, 255, 0.671);
-	// 	content: '';
-	// 	position: absolute;
-	// 	height: 100%;
-	// 	width: 4px;
-	// 	background-color: $color;
-	// 	left: 185px;
-	// 	top: 14px;
-	// 	box-shadow: 1px 1px 8px 2px $color;
-	// 	border-radius: 2px;
-	// }
 	::marker {
 		color: transparent;
 	}
 	&-item {
-		transition: font 0.2s;
+		transition: font 0.2s, border 0.3s;
 		&-selected {
+			color: black;
 			//background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
 			border: {
 				bottom: 3px solid #ffc400;
 			}
-			color: white;
 			&:hover {
 				@extend .menu-item-selected;
 			}
@@ -95,10 +72,12 @@ $hover-color: rgba(36, 223, 230, 0.767);
 		}
 		&:hover {
 			@include item-hover();
+			color: black;
 		}
 	}
 	&-submenu {
 		padding: 0;
+		transition: max-height 0.5s ease-out;
 		&-item {
 			@extend .menu-item;
 			padding: 0;
@@ -106,28 +85,33 @@ $hover-color: rgba(36, 223, 230, 0.767);
 				padding: 0 20px;
 				display: flex;
 				width: 100%;
-				&:hover {
-					@include item-hover();
+				&:hover .menu-submenu-item-arrow {
+					&::before {
+						top: 78px;
+					}
+					&::after,
+					&::before {
+						background-color: black;
+					}
+					//background-color: rgb(0, 0, 0);
 				}
 			}
 			&:hover {
-				color: white;
 				box-shadow: none;
 				font-size: inherit;
-				// & > .menu-submenu-item-title {
-				// 	border: {
-				// 		bottom: 3px solid #ffdc69;
-				// 	}
-				// }
+				color: inherit;
 			}
 			&:hover > &-title {
+				color: black;
 				font-size: 17px;
 				& > &-arrow::after {
-					background-color: white;
+					background-color: rgb(0, 0, 0);
 				}
 			}
-			& > &-title > &-arrow-open::after {
-				transform: rotate(90deg);
+			& > &-title > &-arrow-open {
+				&::before {
+					top: 81px;
+				}
 			}
 			&-arrow {
 				color: black;
@@ -136,16 +120,23 @@ $hover-color: rgba(36, 223, 230, 0.767);
 				flex: none;
 				top: 50%;
 				height: 0;
-				&::after {
+				&::after,
+				&::before {
 					transition: all 0.3s;
 					content: '';
-					width: 9px;
-					height: 2px;
-					background: rgb(255, 255, 255);
+					width: 12px;
+					height: 1px;
+					background: #727272;
 					position: absolute;
 					top: 75px;
 					left: 25px;
 				}
+				&::before {
+					top: 76px;
+				}
+			}
+			&-open {
+				transition: max-height 0.5s ease-in !important;
 			}
 			display: list-item;
 		}

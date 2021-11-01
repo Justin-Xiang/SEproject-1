@@ -80,8 +80,13 @@ export const SubMenu = (props: {
 				></i>
 			</div>
 			<ul
-				className="menu-submenu"
-				style={{ display: isOpen ? 'block' : 'none' }}
+				className={
+					'menu-submenu' + (isOpen ? ' menu-submenu-open' : '')
+				}
+				style={{
+					maxHeight: isOpen ? '600px' : 0,
+					overflow: isOpen ? 'initial' : 'hidden'
+				}}
 			>
 				{Array.isArray(props.children)
 					? props.children.map((v) =>

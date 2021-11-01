@@ -1,0 +1,36 @@
+.login {
+	width: 30em;
+	display: flex;
+	justify-content: center;
+	&-container {
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+	}
+	.ant-form {
+		width: 25em;
+		&-item {
+			margin-bottom: 0px;
+			&-control {
+				height: 64px;
+			}
+		}
+	}
+	.ant-input-affix-wrapper-lg {
+		border-radius: 20px;
+		width: 100%;
+	}
+}
+.submit {
+	margin: 0 30px;
+	.ant-form-item:first-child {
+		height: 30px;
+	}
+}
+.sign {
+	@extend .login;
+	top: -21px;
+	&-container {
+		@extend .login-container;
+	}
+}

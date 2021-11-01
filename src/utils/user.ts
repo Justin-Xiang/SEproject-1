@@ -5,17 +5,24 @@ interface PersonalInformation {
 	age: number;
 	id: string;
 	avatar: Blob | null;
-	personalIntroduction: object;
+	personalIntroduction: string;
+}
+interface Account {
+	username: string;
+	password: string;
+	email: string;
 }
 /**
  * User类，表示当前登录的用户，若未登录，则isLogIn为false，其余属性为undefined
  */
+
 export class User {
+	postAccount = () => {};
 	isLogIn = false;
 	id = '';
 	name = '';
 	age = 0;
-	personalIntroduction: Object | null = null;
+	personalIntroduction: string = '';
 	avatar: Blob | null = null;
 	/**
 	 * @function 用户登录
@@ -30,8 +37,12 @@ export class User {
 		this.avatar = info.avatar;
 		this.personalIntroduction = info.personalIntroduction;
 	}
-}
 
+	signup() {
+		this.postAccount();
+		this.init();
+	}
+}
 /**
  * @function 用户登出
  */
