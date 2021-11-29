@@ -1,19 +1,31 @@
-import { action, autorun, makeAutoObservable } from 'mobx';
-import { difficulty } from './types';
+import { action, makeAutoObservable } from 'mobx';
 import { User } from './user';
 
 export const user = makeAutoObservable(new User());
 
 export const level = makeAutoObservable(
 	{
-		value: 0,
-		setLevel(v: difficulty) {
+		value: 1,
+		setLevel(v: number) {
 			this.value = v;
 		}
 	},
 	{ setLevel: action }
 );
 
-autorun(() => {
-	console.log(level.value);
-});
+export const signal = makeAutoObservable(
+	{
+		value: true,
+		ready: false,
+		getReady() {
+			this.ready = true;
+		},
+		init() {
+			this.ready = false;
+		},
+		emit() {
+			this.value = !this.value;
+		}
+	},
+	{ emit: action }
+);

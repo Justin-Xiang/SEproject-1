@@ -7,6 +7,7 @@ interface PersonalInformation {
 	avatar: Blob | null;
 	personalIntroduction: string;
 }
+// eslint-disable-next-line no-unused-vars
 interface Account {
 	username: string;
 	password: string;

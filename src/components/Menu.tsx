@@ -2,7 +2,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import '../css/Menu.scss';
 import { level } from '../utils/store';
-import { difficulty } from '../utils/types';
 const SelectedContext = React.createContext({} as any);
 type Child = JSX.Element | string;
 type MenuChild = JSX.Element;
@@ -21,7 +20,7 @@ export const MenuItem = (props: {
 	key: number;
 	icon?: JSX.Element;
 	href?: string;
-	level?: difficulty;
+	level?: number;
 	default?: boolean;
 	isChild?: boolean;
 }) => {
