@@ -12,9 +12,8 @@ export const LogInput = (props: { user: User }) => {
 				form={form}
 				onFinish={() => {
 					const formValues = form.getFieldsValue();
-					console.log(formValues);
 					// 验证登录信息
-					fetch('http://localhost:8000/login', {
+					fetch('http://47.96.224.161:8080/login', {
 						method: 'POST',
 						// mode: 'same-origin',
 						mode: 'cors',
@@ -27,11 +26,7 @@ export const LogInput = (props: { user: User }) => {
 							return res.json();
 						})
 						.then((data) => {
-							if (data.status) {
-								props.user?.init();
-							} else {
-								alert('账号密码错误');
-							}
+							console.log(data);
 						})
 						.catch((err) => console.log(err));
 				}}
@@ -108,24 +103,19 @@ export const Register = (props: { user: User }) => {
 				onFinish={() => {
 					const formValues = form.getFieldsValue();
 					// 验证登录信息
-					fetch('http://localhost:8000/login', {
+					fetch('http://47.96.224.161:8080/regist/', {
 						method: 'POST',
-						// mode: 'same-origin',
 						mode: 'cors',
 						body: JSON.stringify(formValues),
-						headers: {
+						headers: new Headers({
 							'Content-Type': 'application/json'
-						}
+						})
 					})
 						.then((res) => {
 							return res.json();
 						})
 						.then((data) => {
-							if (data.status) {
-								props.user?.init();
-							} else {
-								alert('账号密码错误');
-							}
+							console.log(data);
 						})
 						.catch((err) => console.log(err));
 				}}
