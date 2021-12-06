@@ -1,11 +1,11 @@
+import htmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
-
 let __dirname = path.resolve();
 export default {
 	mode: 'development',
 	entry: './src/index.tsx',
 	output: {
-		path: path.join(__dirname, '/build'),
+		path: path.join(__dirname, '/docs'),
 		filename: 'app.js'
 	},
 	resolve: {
@@ -57,5 +57,9 @@ export default {
 				exclude: [path.resolve(__dirname, '..', 'node_modules')]
 			}
 		]
-	}
+	},
+	plugins: [
+		//初始化插件
+		new htmlWebpackPlugin()
+	]
 };
