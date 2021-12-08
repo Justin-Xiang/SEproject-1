@@ -5,6 +5,7 @@ export interface ISingleOpQuestion {
 	num2: number;
 	op: Operator;
 	result: number;
+	answer: number;
 }
 export interface IMulOpQuestion {
 	op1: Operator;
@@ -25,7 +26,7 @@ class QuestionConstructor {
 		let num1 = rand(),
 			num2 = rand(),
 			result = num1 + num2;
-		return { num1, num2, result, op: '+' };
+		return { num1, num2, result, op: '+', answer: NaN };
 	}
 }
 

@@ -3,7 +3,6 @@ import { observer } from 'mobx-react';
 import React, { useEffect, useState } from 'react';
 import '../css/question.scss';
 import QuestionConstructor, { ISingleOpQuestion } from '../utils/question';
-import { signal } from '../utils/store';
 import { Question } from './Question';
 function toGrade(v: number) {
 	let grade = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
@@ -13,6 +12,7 @@ let index = 0;
 export const QuestionPage = observer(
 	(props: { level: { value: number; setLevel(v: number): void } }) => {
 		const [questions, setQuestions] = useState([] as ISingleOpQuestion[]);
+		const [checked, setChecked] = useState(false);
 		useEffect(() => {
 			let q: ISingleOpQuestion[] = [];
 			for (let i = 0; i < 50; ++i) {
@@ -20,7 +20,7 @@ export const QuestionPage = observer(
 			}
 			setQuestions(q);
 			return () => {
-				signal.init();
+				setChecked(false);
 			};
 		}, [props.level.value]);
 		return (
@@ -29,9 +29,9 @@ export const QuestionPage = observer(
 					<div className="questions">
 						{questions.map((v) => (
 							<Question
+								checked={checked}
 								key={index++}
 								question={v}
-								signal={signal}
 							/>
 						))}
 					</div>
@@ -40,8 +40,7 @@ export const QuestionPage = observer(
 					<button
 						className="toolbar-btn"
 						onClick={() => {
-							signal.getReady();
-							signal.emit();
+							setChecked(true);
 						}}
 					>
 						check
