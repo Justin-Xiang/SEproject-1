@@ -27,6 +27,7 @@ export const LogInput = (props: { user: User }) => {
 						})
 						.then((data) => {
 							console.log(data);
+							props.user.logIn(data);
 						})
 						.catch((err) => console.log(err));
 				}}
