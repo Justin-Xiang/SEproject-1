@@ -21,7 +21,7 @@ export const Question = (props: {
 			}
 			(input.current as any).value = props.question.result;
 		}
-	}, [props.checked]);
+	}, []);
 	return (
 		<div className="question-item">
 			<div className="question-info">

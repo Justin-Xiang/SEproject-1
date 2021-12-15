@@ -37,11 +37,11 @@ $active-color: white !important;
 			z-index: 3;
 			background-color: rgba(165, 163, 163, 0.219);
 			margin: 0;
-			top: 75px;
-			height: $arrow-width;
-			width: $arrow-width;
-			border-radius: $arrow-width/2;
-			border: 2px white dotted;
+			top: 280px !important; 
+			height: $arrow-width * 2;
+			width: $arrow-width * 2;
+			border-radius: $arrow-width;
+			border: 4px white dotted;
 		}
 		&-next,
 		&-prev {
@@ -62,3 +62,5 @@ $active-color: white !important;
 		bottom: 20px;
 	}
 }
+
+
