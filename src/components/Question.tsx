@@ -7,7 +7,6 @@ export const Question = (props: {
 	question: ISingleOpQuestion;
 	checked: boolean;
 }) => {
-	const [result, setResult] = useState(NaN);
 	const [checkRes, setRes] = useState('not-check');
 	const fn = useDebounce((e: any) => {
 		props.question.answer = parseInt(e.target.value);
