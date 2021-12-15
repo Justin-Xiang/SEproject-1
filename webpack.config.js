@@ -1,4 +1,4 @@
-import htmlWebpackPlugin from 'html-webpack-plugin';
+/* eslint-disable no-underscore-dangle */
 import path from 'path';
 let __dirname = path.resolve();
 export default {
@@ -57,9 +57,5 @@ export default {
 				exclude: [path.resolve(__dirname, '..', 'node_modules')]
 			}
 		]
-	},
-	plugins: [
-		//初始化插件
-		new htmlWebpackPlugin()
-	]
+	}
 };
