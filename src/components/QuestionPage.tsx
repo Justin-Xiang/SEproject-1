@@ -6,8 +6,8 @@ import '../css/question.scss';
 import QuestionConstructor, { ISingleOpQuestion } from '../utils/question';
 import { Question } from './Question';
 function toGrade(v: number) {
-  let grade = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
-  return grade[v];
+	let grade = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
+	return grade[v];
 }
 let index = 0;
 

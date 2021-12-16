@@ -12,20 +12,3 @@ export const level = makeAutoObservable(
 	},
 	{ setLevel: action }
 );
-
-export const signal = makeAutoObservable(
-	{
-		value: true,
-		ready: false,
-		getReady() {
-			this.ready = true;
-		},
-		init() {
-			this.ready = false;
-		},
-		emit() {
-			this.value = !this.value;
-		}
-	},
-	{ emit: action }
-);
