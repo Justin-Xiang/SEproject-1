@@ -1,27 +1,22 @@
-/* eslint-disable no-unused-vars */
-import { observer } from 'mobx-react';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../css/question.scss';
+import {observer} from 'mobx-react';
+import React, {useEffect, useState} from 'react';
+import '../css/question.scss'
 import QuestionConstructor, { ISingleOpQuestion } from '../utils/question';
 import { Question } from './Question';
-function toGrade(v: number) {
-  let grade = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
-  return grade[v];
-}
-let index = 0;
 
-export const QuestionPage = observer(
+let index = 0;
+export const WrongSet = observer(
   (props: { level: { value: number; setLevel(v: number): void } }) => {
     const [questions, setQuestions] = useState([] as ISingleOpQuestion[]);
     const [checked, setChecked] = useState(false);
     const [score, setScore] = useState(0);
     const [reload, setReload] = useState(false);
     useEffect(() => {
-      QuestionConstructor.createQuestion(props.level.value)
-      .then((res: any)=>{
-        setQuestions(res)
-      });
+      let q: ISingleOpQuestion[] = [];
+      // for (let i = 0; i < 50; ++i) {
+      //   q.push(QuestionConstructor.createQuestion(props.level.value));
+      // }
+      setQuestions(q);
       return () => {
         setChecked(false);
       };

@@ -1,6 +1,6 @@
 .question {
   &-container {
-    width: 800px;
+    width: 1000px;
     height: 90%;
     background-color: white;
     border-radius: 10px;
@@ -14,8 +14,8 @@
   }
   &s {
     display: grid;
-    grid-template-columns: repeat(5, 130px);
-    grid-template-rows: repeat(10, 50px);
+    grid-template-columns: repeat(5, 180px);
+    grid-template-rows: repeat(10, 60px);
     grid-gap: 5px;
     margin: {
       top: 20px;
@@ -25,19 +25,19 @@
     display: flex;
     flex-direction: row;
     height: 20px;
-    margin: 0 10px;
+    margin: 0 0px;
   }
   &-info {
     min-width: 55px;
   }
   &-result {
     user-select: none;
-    width: 30px;
+    width: 60px;
     border: none {
       bottom: 1px solid rgba(116, 116, 116, 0.596);
       radius: 0;
     }
-    margin-left: 3px;
+    margin-left: 1px;
     outline: none;
     &:focus {
       border: none {
@@ -83,10 +83,14 @@
     &:active {
       background-color: aqua;
     }
-    margin:0 0 10px;
+    margin: 0 0 10px;
   }
 }
 
 .op-number {
   min-width: 16px;
+}
+
+.op2-number {
+  min-width: 10px;
 }
