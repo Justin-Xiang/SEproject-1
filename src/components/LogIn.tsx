@@ -13,7 +13,7 @@ export const LogInput = (props: { user: User }) => {
 				onFinish={() => {
 					const formValues = form.getFieldsValue();
 					// 验证登录信息
-					fetch('https://47.96.224.161:8080/login', {
+					fetch('http://47.96.224.161:8080/login', {
 						method: 'POST',
 						// mode: 'same-origin',
 						mode: 'cors',
@@ -104,7 +104,7 @@ export const Register = (props: { user: User }) => {
 				onFinish={() => {
 					const formValues = form.getFieldsValue();
 					// 验证登录信息
-					fetch('https://47.96.224.161:8080/regist/', {
+					fetch('http://47.96.224.161:8080/regist/', {
 						method: 'POST',
 						mode: 'cors',
 						body: JSON.stringify(formValues),

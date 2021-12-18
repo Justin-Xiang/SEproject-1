@@ -4,7 +4,7 @@ export const History = (props: { user: User }) => {
 	const [sum, setSum] = useState(0);
 	const [accuracy, setAccuracy] = useState(0);
 	useEffect(() => {
-		fetch('https://47.96.224.161:8080/history', {
+		fetch('http://47.96.224.161:8080/history', {
 			method: 'POST',
 			mode: 'cors',
 			body: JSON.stringify({ id: props.user.id }),

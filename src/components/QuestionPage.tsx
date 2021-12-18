@@ -54,7 +54,7 @@ export const QuestionPage = observer(
 				id: props.user.id
 			};
 			console.log(formValues);
-			fetch('https://47.96.224.161:8080/check', {
+			fetch('http://47.96.224.161:8080/check', {
 				method: 'POST',
 				mode: 'cors',
 				body: JSON.stringify(formValues),

@@ -44,7 +44,7 @@ export const WrongSet = observer((props: { user: User }) => {
 			id: props.user.id
 		};
 		console.log(formValues);
-		fetch('https://47.96.224.161:8080/checkMistake', {
+		fetch('http://47.96.224.161:8080/checkMistake', {
 			method: 'POST',
 			mode: 'cors',
 			body: JSON.stringify(formValues),
