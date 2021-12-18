@@ -7,6 +7,7 @@ export interface ISingleOpQuestion {
 	result: any;
 	answer: number;
 	flag: number
+	id: number;
 }
 export interface IDouOpQuestion {
 	op1: Operator;
@@ -17,6 +18,7 @@ export interface IDouOpQuestion {
 	result: number;
 	answer: number;
 	flag: number
+	id: number;
 }
 
 export interface ILeBrOpQuestion {
@@ -28,6 +30,7 @@ export interface ILeBrOpQuestion {
 	result: number;
 	answer: number;
 	flag: number
+	id: number;
 }
 
 export interface IRiBrOpQuestion {
@@ -39,6 +42,7 @@ export interface IRiBrOpQuestion {
 	result: number;
 	answer: number;
 	flag: number
+	id: number;
 }
 
 
@@ -159,7 +163,8 @@ class QuestionConstructor {
 									op: '+',
 									result: element.num1+element.num2,
 									answer:NaN,
-									flag:1
+									flag:1,
+									id: element.id
 								}
 								QuestionList.push(question);
 								}
@@ -170,7 +175,8 @@ class QuestionConstructor {
 									op: '-',
 									result: element.num1-element.num2,
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -210,7 +216,8 @@ class QuestionConstructor {
 									op: '*',
 									result: element.num1*element.num2,
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -223,7 +230,8 @@ class QuestionConstructor {
 									num3: element.num3,
 									result: element.num1*element.num2 + element.num3,
 									answer:NaN,
-									flag:2
+									flag:2,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -236,7 +244,9 @@ class QuestionConstructor {
 									num3: element.num3,
 									result: element.num1+ element.num2 * element.num3,
 									answer:NaN,
-									flag:2
+									flag:2,
+									id:element.id
+								
 								}
 								QuestionList.push(question);
 								}
@@ -277,7 +287,8 @@ class QuestionConstructor {
 									op: '*',
 									result: element.num1*element.num2,
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -288,7 +299,8 @@ class QuestionConstructor {
 									op: '/',
 									result: element.num1/element.num2,
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -301,7 +313,8 @@ class QuestionConstructor {
 									num3: element.num3,
 									result: element.num1*element.num2 + element.num3,
 									answer:NaN,
-									flag:2
+									flag:2,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -314,7 +327,8 @@ class QuestionConstructor {
 									num3: element.num3,
 									result: element.num1/element.num2 + element.num3,
 									answer:NaN,
-									flag:2
+									flag:2,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -355,7 +369,8 @@ class QuestionConstructor {
 									op: '*',
 									result: element.num1*element.num2,
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -366,7 +381,8 @@ class QuestionConstructor {
 									op: '/',
 									result: new BigNumber(element.num1).dividedBy(new BigNumber(element.num2)),
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -379,7 +395,8 @@ class QuestionConstructor {
 									num3: element.num3,
 									result: accDiv(accSub(element.num1,element.num2), element.num3),
 									answer:NaN,
-									flag:3
+									flag:3,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -392,7 +409,8 @@ class QuestionConstructor {
 									num3: element.num3,
 									result: element.num1*(element.num2 + element.num3),
 									answer:NaN,
-									flag:4
+									flag:4,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -432,7 +450,8 @@ class QuestionConstructor {
 									op: '*',
 									result: accMul(element.num1,element.num2),
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -444,7 +463,8 @@ class QuestionConstructor {
 									op: '/',
 									result:  accDiv(element.num1,element.num2),
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -457,7 +477,8 @@ class QuestionConstructor {
 									num3: element.num3,
 									result:accDiv(accSub(element.num1,element.num2), element.num3),
 									answer:NaN,
-									flag:3
+									flag:3,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -470,7 +491,8 @@ class QuestionConstructor {
 									num3: element.num3,
 									result:  accAdd(element.num1, accMul(element.num2, element.num3)),
 									answer:NaN,
-									flag:2
+									flag:2,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -509,7 +531,8 @@ class QuestionConstructor {
 									op: '*',
 									result: accMul(element.num1,element.num2),
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -520,7 +543,8 @@ class QuestionConstructor {
 									op: '/',
 									result: accDiv(element.num1,element.num2),
 									answer:NaN,
-									flag:1
+									flag:1,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -533,7 +557,8 @@ class QuestionConstructor {
 									num3: element.num3,
 									result: accMul(accSub(element.num1,element.num2), element.num3) ,
 									answer:NaN,
-									flag:3
+									flag:3,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}
@@ -546,7 +571,8 @@ class QuestionConstructor {
 									num3: element.num3,
 									result: parseFloat(accDiv(accMul(element.num1, element.num2),element.num3).toFixed(3)),
 									answer:NaN,
-									flag:2
+									flag:2,
+									id:element.id
 								}
 								QuestionList.push(question);
 								}

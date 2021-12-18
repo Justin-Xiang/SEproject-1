@@ -16,15 +16,15 @@ export const MainContent = observer((props: { user: User }) => {
 			<div className={styles.mainContent}>
 				<Routes>
 					<Route
-						element={<WrongSet level={level}/>}
+						element={<WrongSet user={props.user}/>}
 						path="/wrongSet"
 					/>
 					<Route 
-						element={<History />}
+						element={<History user={props.user}/>}
 						path="/history"
 					/>
 					<Route
-						element={<QuestionPage level={level} />}
+						element={<QuestionPage user={props.user} level={level} />}
 						path="/question"
 					/>
 					<Route

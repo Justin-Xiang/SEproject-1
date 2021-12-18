@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../css/question.scss';
 import QuestionConstructor, { ISingleOpQuestion } from '../utils/question';
 import { Question } from './Question';
+import { User } from '../utils/user';
 function toGrade(v: number) {
 	let grade = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'];
 	return grade[v];
@@ -12,10 +13,10 @@ function toGrade(v: number) {
 let index = 0;
 
 export const QuestionPage = observer(
-  (props: { level: { value: number; setLevel(v: number): void } }) => {
+  (props: { user:User, level: { value: number;setLevel(v: number): void }}) => {
     const [questions, setQuestions] = useState([] as ISingleOpQuestion[]);
     const [checked, setChecked] = useState(false);
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState(-1);
     const [reload, setReload] = useState(false);
     useEffect(() => {
       QuestionConstructor.createQuestion(props.level.value)
@@ -24,23 +25,54 @@ export const QuestionPage = observer(
       });
       return () => {
         setChecked(false);
+        setScore(-1);
       };
     }, [props.level.value, reload]);
     useEffect(() => {
       let i = 0;
+      let rightlist:Number[] = [];
+      let wronglist:Number[] = [];
       if (!checked) {
         return;
       }
       questions.forEach((q) => {
+        console.log(props.level.value);
         if (q.result === q.answer) {
           i++;
+          rightlist.push(q.id)
+        }
+        else{
+          wronglist.push(q.id);
         }
       });
+      let formValues = {
+        trueId: rightlist,
+        falseId: wronglist,
+        grade: props.level.value,
+        id: props.user.id
+      }
+      console.log(formValues);
+      fetch('http://47.96.224.161:8080/check', {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify(formValues),
+            headers: new Headers({
+              'Content-Type': 'application/json'
+            })
+          })
+            .then((res) => {
+              return res.json();
+            })
+            .then((data) => {
+              console.log(data);
+            })
+            .catch((err) => console.log(err));
+        
       console.log('already checked');
       setScore(i);
     }, [checked]);
     useEffect(() => {
-      if (checked) {
+      if (checked && score !== -1) {
         alert('你获得了' + score + '分');
       }
     }, [score]);
