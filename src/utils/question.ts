@@ -589,6 +589,187 @@ class QuestionConstructor {
 	}
 
 }
+
+
+
+		static async getWrongQuestion(id:String)  {
+		let QuestionList: Object[] = [];
+		await fetch('http://47.96.224.161:8080/mistake', {
+						method: 'POST',
+						// mode: 'same-origin',
+						mode: 'cors',
+						body: JSON.stringify({id:id}),
+						headers: {
+							'Content-Type': 'application/json'
+						}
+				})
+					.then((res) => {
+							return res.json();
+					})
+						.then((data) => {
+							console.log(data);
+							data.forEach((element:any) => {
+								console.log(element);
+								if(element.model === '1'){
+									let question: ISingleOpQuestion = {
+									num1: element.num1,
+									num2: element.num2,
+									op: '+',
+									result: element.num1+element.num2,
+									answer:NaN,
+									flag:1,
+									id: element.id
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '2'){
+									let question: ISingleOpQuestion = {
+									num1: element.num1,
+									num2: element.num2,
+									op: '-',
+									result: element.num1-element.num2,
+									answer:NaN,
+									flag:1,
+									id:element.id
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '3'){
+									let question: ISingleOpQuestion = {
+									num1: element.num1,
+									num2: element.num2,
+									op: '*',
+									result: element.num1*element.num2,
+									answer:NaN,
+									flag:1,
+									id:element.id
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '5'){
+									let question: IDouOpQuestion = {
+									op1:'*',
+									op2:'+',
+									num1: element.num1,
+									num2: element.num2,
+									num3: element.num3,
+									result: element.num1*element.num2 + element.num3,
+									answer:NaN,
+									flag:2,
+									id:element.id
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '7'){
+									let question: IDouOpQuestion = {
+									op1:'+',
+									op2:'*',
+									num1: element.num1,
+									num2: element.num2,
+									num3: element.num3,
+									result: element.num1+ element.num2 * element.num3,
+									answer:NaN,
+									flag:2,
+									id:element.id
+								
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '4'){
+									let question: ISingleOpQuestion = {
+									num1: element.num1,
+									num2: element.num2,
+									op: '/',
+									result: element.num1/element.num2,
+									answer:NaN,
+									flag:1,
+									id:element.id
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '6'){
+									let question: IDouOpQuestion = {
+									op1:'/',
+									op2:'+',
+									num1: element.num1,
+									num2: element.num2,
+									num3: element.num3,
+									result: element.num1/element.num2 + element.num3,
+									answer:NaN,
+									flag:2,
+									id:element.id
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '14'){
+									let question: ILeBrOpQuestion = {
+									op1:'-',
+									op2:'/',
+									num1: element.num1,
+									num2: element.num2,
+									num3: element.num3,
+									result: accDiv(accSub(element.num1,element.num2), element.num3),
+									answer:NaN,
+									flag:3,
+									id:element.id
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '15'){
+									let question: IRiBrOpQuestion = {
+									op1:'*',
+									op2:'+',
+									num1: element.num1,
+									num2: element.num2,
+									num3: element.num3,
+									result: element.num1*(element.num2 + element.num3),
+									answer:NaN,
+									flag:4,
+									id:element.id
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '12'){
+									let question: ILeBrOpQuestion = {
+									op1:'-',
+									op2:'*',
+									num1: element.num1,
+									num2: element.num2,
+									num3: element.num3,
+									result: accMul(accSub(element.num1,element.num2), element.num3) ,
+									answer:NaN,
+									flag:3,
+									id:element.id
+								}
+								QuestionList.push(question);
+								}
+								else if(element.model === '9'){
+									let question: IDouOpQuestion = {
+									op1:'*',
+									op2:'/',
+									num1: element.num1,
+									num2: element.num2,
+									num3: element.num3,
+									result: parseFloat(accDiv(accMul(element.num1, element.num2),element.num3).toFixed(3)),
+									answer:NaN,
+									flag:2,
+									id:element.id
+								}
+								QuestionList.push(question);
+								}
+								
+							}
+							
+						)
+						console.log(QuestionList);
+					})
+						.catch((err) => console.log(err));
+		
+		return Promise.resolve(QuestionList);
+	}
+
+	
 }
+
 
 export default QuestionConstructor;

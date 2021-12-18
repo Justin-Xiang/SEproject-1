@@ -117,6 +117,7 @@ export const Register = (props: { user: User }) => {
             })
             .then((data) => {
               console.log(data);
+              alert('注册成功！');
             })
             .catch((err) => console.log(err));
         }}
