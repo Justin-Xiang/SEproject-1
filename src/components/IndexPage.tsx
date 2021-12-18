@@ -1,6 +1,17 @@
-import { Avatar, Carousel, Image, List } from 'antd';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import InboxIcon from '@mui/icons-material/Inbox';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import { Carousel } from 'antd';
 import React from 'react';
 import '../css/carousel-custom.scss';
+import testImage from '../image/IMG.jpg';
 const contentStyle: React.CSSProperties = {
 	color: '#fff',
 	lineHeight: '160px',
@@ -23,7 +34,7 @@ const CustomCarousel = () => {
 				dots
 			>
 				<div>
-					<h3 style={contentStyle}>Math</h3>
+					<img alt="img" src={testImage} />
 				</div>
 				<div>
 					<h3 style={contentStyle}>2</h3>
@@ -39,55 +50,46 @@ const CustomCarousel = () => {
 	);
 };
 
-const Avater = () => {
+const Info = () => {
 	return (
 		<div>
 			<Avatar
-				src={
-					<Image
-						src="https://joeschmoe.io/api/v1/random"
-						style={{ width: 32 }}
-					/>
-				}
+				alt="Remy Sharp"
+				className="MuiAvatar-img"
+				src={testImage}
+				sx={{ width: 100, height: 100 }}
 			/>
-		</div>
-	);
-};
-
-const Info = () => {
-	const data = [
-		{
-			title: 'Ant Design Title 1'
-		},
-		{
-			title: 'Ant Design Title 2'
-		},
-		{
-			title: 'Ant Design Title 3'
-		},
-		{
-			title: 'Ant Design Title 4'
-		}
-	];
-	return (
-		<div>
-			<List
-				dataSource={data}
-				itemLayout="horizontal"
-				renderItem={(item) => (
-					<List.Item>
-						<List.Item.Meta
-							avatar={
-								<Avatar src="https://joeschmoe.io/api/v1/random" />
-							}
-							description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-							title={
-								<a href="https://ant.design">{item.title}</a>
-							}
-						/>
-					</List.Item>
-				)}
-			/>
+			<div className="info">
+				<Box
+					sx={{
+						width: '150%',
+						maxWidth: 400,
+						bgcolor: 'background.paper'
+					}}
+				>
+					<nav aria-label="main mailbox folders">
+						<List>
+							<ListItem disablePadding>
+								<ListItemButton>
+									<ListItemIcon>
+										<InboxIcon />
+									</ListItemIcon>
+									<ListItemText primary="用户名" />
+								</ListItemButton>
+							</ListItem>
+							<ListItem disablePadding>
+								<ListItemButton>
+									<ListItemIcon>
+										<DraftsIcon />
+									</ListItemIcon>
+									<ListItemText primary="邮箱" />
+								</ListItemButton>
+							</ListItem>
+						</List>
+					</nav>
+					<Divider />
+				</Box>
+			</div>
 		</div>
 	);
 };
@@ -95,6 +97,7 @@ const Info = () => {
 export const IndexPage = () => {
 	return (
 		<>
+			<CustomCarousel />
 			<Info />
 		</>
 	);

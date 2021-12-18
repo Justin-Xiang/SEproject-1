@@ -43,6 +43,8 @@ export class User {
 		this.postAccount();
 		this.init();
 	}
+
+	
 }
 /**
  * @function 用户登出

@@ -1,66 +1,83 @@
 $arrow-width: 20px;
 $border-dist: 6px;
 $active-color: white !important;
-@import './cyberpunk.scss';
+@import "./cyberpunk.scss";
 @mixin item-hover {
-	color: orange !important;
+  color: orange !important;
 }
+
 @mixin item-selected {
-	color: white !important;
+  color: white !important;
 }
 @mixin item-border($bg-color) {
-	background-color: $bg-color !important;
-	border: {
-		radius: 20px;
-	}
-	color: white !important;
+  background-color: $bg-color !important;
+  border: {
+    radius: 20px;
+  }
+  color: white !important;
 }
 .wrapper {
-	font-family: Neon;
-	width: 60%;
-	position: relative;
-	left: 50px;
-	height: auto;
-	.ant-carousel {
-		width: 100%;
-		height: 100%;
-	}
-	div {
-		height: 100%;
-	}
-	.slick {
-		&-list {
-			height: 600px;
-		}
-		&-arrow {
-			position: absolute;
-			z-index: 3;
-			background-color: rgba(165, 163, 163, 0.219);
-			margin: 0;
-			top: 280px !important; 
-			height: $arrow-width * 2;
-			width: $arrow-width * 2;
-			border-radius: $arrow-width;
-			border: 4px white dotted;
-		}
-		&-next,
-		&-prev {
-			&:hover {
-				background-color: rgba(104, 104, 104, 0.465) !important;
-			}
-		}
+  font-family: Neon;
+  width: 60%;
+  position: relative;
+  left: 100px;
+  height: auto;
+  .ant-carousel {
+    width: 100%;
+    height: 100%;
+  }
+  div {
+    height: 100%;
+  }
+  .slick-slider {
+    width: 700px;
+  }
+  .slick {
+    &-track {
+      display: flex;
+      justify-content: center;
+    }
+    &-list {
+      height: 600px;
+    }
+    &-arrow {
+      position: absolute;
 
-		&-next {
-			right: $border-dist;
-		}
-		&-prev {
-			left: $border-dist;
-		}
-	}
-	.ant-carousel .slick-dots-bottom {
-		position: relative;
-		bottom: 20px;
-	}
+      z-index: 3;
+      background-color: rgba(165, 163, 163, 0.219);
+      margin: 0;
+      top: 280px !important;
+      height: $arrow-width * 2;
+      width: $arrow-width * 2;
+      border-radius: $arrow-width;
+      border: 4px white dotted;
+    }
+    &-next,
+    &-prev {
+      &:hover {
+        background-color: rgba(104, 104, 104, 0.465) !important;
+      }
+    }
+
+    &-next {
+      right: $border-dist;
+    }
+    &-prev {
+      left: $border-dist;
+    }
+  }
+  .ant-carousel .slick-dots-bottom {
+    position: relative;
+    bottom: 20px;
+  }
 }
 
+.info{
+  position: absolute;
+  left: 1100px;
+}
+
+.MuiAvatar-img{
+  left: 100px;
+}
 
