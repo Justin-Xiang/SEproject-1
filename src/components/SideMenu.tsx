@@ -1,12 +1,20 @@
 /* eslint-disable no-undef */
+import Avatar from '@mui/material/Avatar';
 import React from 'react';
 import '../css/Menu.scss';
-import { Avatar } from './Avatar';
+import testImage from '../image/IMG.jpg';
 import { Menu, MenuItem, SubMenu } from './Menu';
 export const Menus = () => {
 	return (
 		<div className="contain-sideMenu">
-			<Avatar />
+			<div className="info">
+				<Avatar
+					alt="Remy Sharp"
+					className="MuiAvatar-img"
+					src={testImage}
+					sx={{ width: 80, height: 80 }}
+				/>
+			</div>
 			<Menu>
 				<MenuItem default href="#/" key={0}>
 					首页

@@ -147,3 +147,21 @@ $hover-color: rgba(36, 223, 230, 0.767);
 		}
 	}
 }
+
+.contain-menu {
+	margin-top: 35px;
+}
+
+.info {
+	width: 110px;
+	position: relative;
+	margin: 20px auto;
+	display: flex;
+	justify-content: center;
+}
+
+.fixed-wrapper {
+	position: fixed;
+	top: 10px;
+	left: 50px;
+}
