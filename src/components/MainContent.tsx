@@ -24,7 +24,7 @@ export const MainContent = observer((props: { user: User }) => {
 						path="/history"
 					/>
 					<Route
-						element={<QuestionPage user={props.user} level={level} />}
+						element={<QuestionPage level={level} user={props.user} />}
 						path="/question"
 					/>
 					<Route
