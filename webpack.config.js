@@ -45,6 +45,10 @@ export default {
 					}
 				],
 				exclude: [path.resolve(__dirname, '..', 'node_modules')]
+			},
+			{
+				test: /\.(png|jpg|gif|svg)$/,
+				use: ['file-loader']
 			}
 		]
 	}
