@@ -2,7 +2,7 @@
 import Avatar from '@mui/material/Avatar';
 import React from 'react';
 import '../css/Menu.scss';
-import testImage from '../image/IMG.jpg';
+import Image from '../image/609.jpg';
 import { Menu, MenuItem, SubMenu } from './Menu';
 export const Menus = () => {
 	return (
@@ -11,7 +11,7 @@ export const Menus = () => {
 				<Avatar
 					alt="Remy Sharp"
 					className="MuiAvatar-img"
-					src={testImage}
+					src={Image}
 					sx={{ width: 80, height: 80 }}
 				/>
 			</div>
