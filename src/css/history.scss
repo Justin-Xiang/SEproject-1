@@ -1,0 +1,32 @@
+.accuracy {
+	width: 700px;
+	height: 18px;
+	display: flex;
+	&-label {
+		span {
+			margin: 0 20px;
+			font-size: 18px;
+			font-weight: 600;
+		}
+	}
+	&-wrapper {
+		display: flex;
+		align-items: center;
+		margin: 40px 0;
+	}
+	&-right {
+		background-color: aquamarine;
+		text-align: right;
+		font-weight: bolder;
+		padding-right: 10px;
+	}
+	&-wrong {
+		background-color: rgb(211, 115, 255);
+		text-align: left;
+		font-weight: bolder;
+		padding-left: 10px;
+	}
+}
+.rate {
+	position: absolute;
+}

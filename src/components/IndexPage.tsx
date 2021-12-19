@@ -51,37 +51,6 @@ const Info = () => {
 					src={testImage}
 					sx={{ width: 50, height: 50 }}
 				/>
-				{/* <div className="info">
-					<Box
-						sx={{
-							width: '150%',
-							maxWidth: 400,
-							bgcolor: 'background.paper'
-						}}
-					>
-						<nav aria-label="main mailbox folders">
-							<List>
-								<ListItem disablePadding>
-									<ListItemButton>
-										<ListItemIcon>
-											<InboxIcon />
-										</ListItemIcon>
-										<ListItemText primary="用户名" />
-									</ListItemButton>
-								</ListItem>
-								<ListItem disablePadding>
-									<ListItemButton>
-										<ListItemIcon>
-											<DraftsIcon />
-										</ListItemIcon>
-										<ListItemText primary="邮箱" />
-									</ListItemButton>
-								</ListItem>
-							</List>
-						</nav>
-						<Divider />
-					</Box>
-				</div> */}
 			</div>
 		</div>
 	);
