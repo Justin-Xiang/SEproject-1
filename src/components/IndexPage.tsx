@@ -1,8 +1,12 @@
-import Avatar from '@mui/material/Avatar';
+/* eslint-disable camelcase */
 import { Carousel } from 'antd';
 import React from 'react';
 import '../css/carousel-custom.scss';
-import testImage from '../image/IMG.jpg';
+import image_70 from '../image/70.jpg';
+import image_cartoon from '../image/cartoon.png';
+import image_cover from '../image/cover.jpg';
+import image_juan from '../image/juan.jpg';
+
 const contentStyle: React.CSSProperties = {
 	color: '#fff',
 	lineHeight: '160px',
@@ -17,41 +21,36 @@ const contentStyle: React.CSSProperties = {
 const CustomCarousel = () => {
 	return (
 		<div className="wrapper">
-			<Carousel
-				arrows
-				autoplay
-				autoplaySpeed={2000}
-				dotPosition={'bottom'}
-				dots
-			>
+			<Carousel autoplay autoplaySpeed={2000}>
 				<div>
-					<img alt="img" src={testImage} />
+					<img
+						alt="img"
+						src={image_cover}
+						style={{ width: '800px', height: '600px' }}
+					/>
 				</div>
 				<div>
-					<h3 style={contentStyle}>2</h3>
+					<img
+						alt="img"
+						src={image_70}
+						style={{ width: '800px', height: '600px' }}
+					/>
 				</div>
 				<div>
-					<h3 style={contentStyle}>3</h3>
+					<img
+						alt="img"
+						src={image_cartoon}
+						style={{ width: '800px', height: '600px' }}
+					/>
 				</div>
 				<div>
-					<h3 style={contentStyle}>4</h3>
+					<img
+						alt="img"
+						src={image_juan}
+						style={{ width: '800px', height: '600px' }}
+					/>
 				</div>
 			</Carousel>
-		</div>
-	);
-};
-
-const Info = () => {
-	return (
-		<div className="fixed-wrapper">
-			<div className="info-wrapper">
-				<Avatar
-					alt="Remy Sharp"
-					className="MuiAvatar-img"
-					src={testImage}
-					sx={{ width: 50, height: 50 }}
-				/>
-			</div>
 		</div>
 	);
 };
