@@ -1,7 +1,7 @@
 import { action } from 'mobx';
 // 用户个人信息
 interface PersonalInformation {
-	name: string;
+	username: string;
 	age: number;
 	id: string;
 	avatar: Blob | null;
@@ -33,6 +33,7 @@ export class User {
 	}
 	logIn(info: PersonalInformation) {
 		this.isLogIn = true;
+		this.name = info.username;
 		this.id = info.id;
 		this.age = info.age;
 		this.avatar = info.avatar;
@@ -43,8 +44,6 @@ export class User {
 		this.postAccount();
 		this.init();
 	}
-
-	
 }
 /**
  * @function 用户登出
